@@ -44,6 +44,7 @@
 
 | Skill | Description |
 |-------|-------------|
+| **frontend-skill** | Frontend design guidelines for premium UIs with restrained composition and tasteful motion |
 | **seo-audit** | Technical SEO audit — Core Web Vitals, meta tags, indexing, crawl errors, ranking issues |
 | **web-design-guidelines** | UI review against Web Interface Guidelines — accessibility, design, and UX compliance |
 | **web-perf** | Web performance analysis using Chrome DevTools — FCP, LCP, TBT, CLS, Speed Index |
@@ -55,6 +56,7 @@
 | **create-readme** | Generate well-structured README files for projects |
 | **find-skills** | Discover and install new agent skills from the registry |
 | **get-api-docs** | Fetch up-to-date documentation for third-party libraries and APIs |
+| **gh-fix-ci** | Debug and fix failing GitHub PR checks running in GitHub Actions |
 | **git-commit** | Conventional commit workflow — auto-detect type/scope from diff, generate semantic messages |
 | **migrate-oxlint** | Migration guide from ESLint to Oxlint |
 | **test-driven-development** | TDD workflow — write tests before implementation for features and bugfixes |
