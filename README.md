@@ -83,20 +83,49 @@ The `SKILL.md` file contains YAML frontmatter (`name`, `description`) followed b
 
 ## Installation
 
-Clone the repository and point your AI coding assistant's skill directory to the `skills/` folder:
+### Option 1 — Clone & Symlink (Recommended)
+
+This approach keeps your local skills directory in sync with the repository via a symlink, so `git pull` always gives you the latest skills.
 
 ```bash
-git clone git@github.com:thaihoangminh/ai-knowledge.git
+# 1. Clone the repository
+cd ~/Projects
+git clone https://github.com/thaihoangminh/ai-knowledge.git
+
+# 2. Copy any existing skills into the repo first
+cp -r ~/.agents/skills/* ~/Projects/ai-knowledge/skills/
+
+# 3. Back up the original skills directory
+mv ~/.agents/skills ~/.agents/skills_backup
+
+# 4. Create a symlink: ~/.agents/skills → repo
+ln -s ~/Projects/ai-knowledge/skills ~/.agents/skills
+
+# 5. Verify the symlink
+ls -la ~/.agents/skills
+# skills -> /Users/<your_username>/Projects/ai-knowledge/skills
 ```
 
-Then configure your agent to load skills from `ai-knowledge/skills/`.
+> [!TIP]
+> After the symlink is in place, running `git pull` inside `~/Projects/ai-knowledge` is all you need to update your skills.
 
-## Adding a New Skill
+### Option 2 — npx skills CLI
 
-1. Create a new directory under `skills/` with a descriptive name
-2. Add a `SKILL.md` file with YAML frontmatter and detailed instructions
-3. Optionally include `scripts/`, `examples/`, or `resources/` directories
-4. Keep instructions specific, actionable, and biased towards official documentation
+Use the [`npx skills`](https://github.com/vercel-labs/skills) CLI to search, install, and remove skills without touching the file system manually:
 
-> [!IMPORTANT]
-> Each skill should be self-contained and focused on a single domain or technology.
+```bash
+# Search for skills
+npx skills search <query>
+
+# Install a skill
+npx skills add <skill-name>
+
+# List installed skills
+npx skills list
+
+# Remove a skill
+npx skills remove <skill-name>
+```
+
+> [!NOTE]
+> See the full CLI reference at [github.com/vercel-labs/skills](https://github.com/vercel-labs/skills).
